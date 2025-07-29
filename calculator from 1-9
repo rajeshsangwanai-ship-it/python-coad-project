@@ -1,0 +1,92 @@
+
+def add(x, y):
+    return x + y # add two numbers 
+
+def subtract(x, y):
+    return x - y # Substract two numbers 
+
+def multiply(x, y):
+    return x * y # Multiply two numbers 
+
+def divide(x, y):
+    if y == 0:
+        return "Error: cannot divide by zero"
+    return x / y # divide two numbers
+
+def power(x, y):
+    return x ** y # power two numbers 
+
+def modulo(x, y):
+    if y == 0:
+        return "Error: cannot modulo by zero"
+    return x % y # modulo operation
+
+def floor_divide(x, y):
+    if y == 0:
+        return "Error: cannot divide by zero"
+    return x // y # floor division
+
+def square_root(x):
+    if x < 0:
+        return "Error: cannot take square root of negative number"
+    return x ** 0.5 # square root 
+
+def calculator():
+    print("welcome to the calculator")
+    print("operations available")
+    print("1. Addition (+)")
+    print("2. Subtraction (-)")
+    print("3. Multiplication (*)")
+    print("4. Division (/)")
+    print("5. Power (**)")
+    print("6. Modulo (%)")
+    print("7. Floor Division (//)")
+    print("8. Square Root (√)")
+    print("9. Exit")
+
+    while True:
+        try:
+            choice = input("\nEnter operation number (1-9):")
+            if choice == '9':
+                print("Thank you for using the calculator!")
+                break
+
+            if choice in ['1', '2', '3', '4', '5', '6', '7']:
+                num1 = float(input("Enter first number:"))
+                num2 = float(input("Enter second number:"))
+
+                if choice == '1':
+                    result = add(num1, num2)
+                    print(f"{num1} + {num2} = {result}")
+                elif choice == '2':
+                    result = subtract(num1, num2)
+                    print(f"{num1} - {num2} = {result}")
+                elif choice == '3':
+                    result = multiply(num1, num2)
+                    print(f"{num1} * {num2} = {result}")
+                elif choice == '4':
+                    result = divide(num1, num2)
+                    print(f"{num1} / {num2} = {result}")
+                elif choice == '5':
+                    result = power(num1, num2)
+                    print(f"{num1} ** {num2} = {result}")
+                elif choice == '6':
+                    result = modulo(num1, num2)
+                    print(f"{num1} % {num2} = {result}")
+                elif choice == '7':
+                    result = floor_divide(num1, num2)
+                    print(f"{num1} // {num2} = {result}")
+            elif choice == '8':
+                num1 = float(input("Enter number:"))
+                result = square_root(num1)
+                print(f"√{num1} = {result}")
+            else:
+                print("Invalid choice! Please enter a number between 1-9.")
+
+        except ValueError:
+            print("Invalid input! Please enter valid numbers.")
+        except Exception as e:
+            print(f"an error occurred: {e}")
+
+if __name__ == "__main__":
+    calculator()
