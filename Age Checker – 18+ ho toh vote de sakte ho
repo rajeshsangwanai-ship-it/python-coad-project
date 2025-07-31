@@ -1,0 +1,44 @@
+def age_checker():
+    print("=== Age Checker - Voting Eligibility ===")
+    print("18+ ho toh vote de sakte ho!")
+    print("=" * 40)
+    
+    while True:
+        try:
+            # Get user's age
+            age = int(input("\nApni age enter karo: "))
+            
+            # Check if age is valid
+            if age < 0:
+                print("Invalid age! Age cannot be negative.")
+                continue
+            elif age > 150:
+                print("Invalid age! Please enter a realistic age.")
+                continue
+            
+            # Check voting eligibility
+            if age >= 18:
+                print(f"✅ Congratulations! {age} saal ke ho, tum vote de sakte ho!")
+                print("🗳️  Go and exercise your democratic right!")
+            else:
+                years_left = 18 - age
+                print(f"❌ Sorry! {age} saal ke ho, abhi vote nahi de sakte.")
+                print(f"⏰ {years_left} saal aur wait karna padega.")
+            
+            # Ask if user wants to check another age
+            choice = input("\nKya aur kisi ka age check karna chahte ho? (y/n): ").lower().strip()
+            if choice not in ['y', 'yes', 'हाँ', 'हां']:
+                print("\nThanks for using Age Checker! 🙏")
+                break
+                
+        except ValueError:
+            print("❌ Invalid input! Please enter a valid number.")
+        except KeyboardInterrupt:
+            print("\n\nProgram terminated by user. Goodbye! 👋")
+            break
+
+def main():
+    age_checker()
+
+if __name__ == "__main__":
+    main()
