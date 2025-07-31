@@ -1,0 +1,39 @@
+def add(x, y): return x + y
+def sub(x, y): return x - y
+def mul(x, y): return x * y
+def div(x, y): return "Error: Divide by zero" if y == 0 else x / y
+def powr(x, y): return x ** y
+
+operations = {
+    '1': ('+', add),
+    '2': ('-', sub),
+    '3': ('*', mul),
+    '4': ('/', div),
+    '5': ('**', powr)
+}
+
+def calculator():
+    print("🧮 Welcome to Rajesh Calculator!")
+    for key, (symbol, _) in operations.items():
+        print(f"{key}. {symbol}")
+    print("6. Exit")
+
+    while True:
+        choice = input("\nEnter operation (1-6): ")
+        if choice == '6':
+            print("Thanks for using the calculator!")
+            break
+        elif choice in operations:
+            try:
+                x = float(input("Enter first number: "))
+                y = float(input("Enter second number: "))
+                symbol, func = operations[choice]
+                result = func(x, y)
+                print(f"{x} {symbol} {y} = {result}")
+            except ValueError:
+                print("❌ Please enter valid numbers.")
+        else:
+            print("❗ Invalid choice. Select between 1-6.")
+
+if __name__ == "__main__":
+    calculator()
