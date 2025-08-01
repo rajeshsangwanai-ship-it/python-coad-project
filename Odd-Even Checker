@@ -1,0 +1,29 @@
+def odd_even_checker():
+    print("=== Odd-Even Number Checker ===")
+    while True:
+        try:
+            # User se number input lo
+            num = int(input("\nKoi bhi number enter karo: "))
+            
+            # Check karo number even hai ya odd 
+            if num % 2 == 0:
+                print(f"{num} ek Even number hai.")
+            else:
+                print(f"{num} ek Odd number hai.")
+            
+            # Dubara check karna hai ya nahi
+            choice = input("\nKya aur number check karna chahte ho? (y/n): ")
+            if choice.lower() not in ['y', 'yes']:
+                print("Shukriya! Program band kiya ja raha hai.")
+                break
+
+        except ValueError:
+            print("❌ Invalid input! Sirf numbers hi enter karo.")
+        
+        except KeyboardInterrupt:
+            print("\n⛔ User ne program band kar diya.")
+            break
+
+# Main program start yahan se hoga 
+if __name__ == "__main__":
+    odd_even_checker()
